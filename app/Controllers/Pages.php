@@ -9,9 +9,7 @@ class Pages extends BaseController
         $data = [
             'title' => 'Home | LearnCI'
         ];
-        echo view('layout/header', $data);
-        echo view('pages/home');
-        echo view('layout/footer');
+        return view('pages/home', $data);
     }
 
     public function about()
@@ -19,8 +17,24 @@ class Pages extends BaseController
         $data = [
             'title' => 'About | LearnCI'
         ];
-        echo view('layout/header', $data);
-        echo view('pages/about');
-        echo view('layout/footer');
+        return view('pages/about', $data);
+    }
+
+    public function contact()
+    {
+        $data = [
+            'title' => 'Contact | LearnCI',
+            'alamat' => [
+                'tipe' => 'rumah',
+                'alamat' => 'jl. abc no 19',
+                'telp' => '09889123098'
+            ],
+            [
+                'tipe' => 'kantor',
+                'alamat' => 'jl setiawan no 90',
+                'telp' => '0910238091'
+            ]
+        ];
+        return view('pages/contact', $data);
     }
 }
